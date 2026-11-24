@@ -57,9 +57,45 @@ Compare the original, opened, and closed images.
 
 ## Developed By
 
-**Name:** ____________________________
+### Name: Krithik kiran S
 
-**Register No:** ______________________
+### Register No: 212225230145
+```
+import cv2
+import numpy as np
+import matplotlib.pyplot as plt
+
+img = np.zeros((400, 600), dtype=np.uint8)
+
+cv2.putText(img, "IMAGE PROCESSING", (80, 200),
+            cv2.FONT_HERSHEY_SIMPLEX, 1.5, 255, 3)
+
+kernel = np.ones((5, 5), np.uint8)
+
+opening = cv2.morphologyEx(img, cv2.MORPH_OPEN, kernel)
+
+closing = cv2.morphologyEx(img, cv2.MORPH_CLOSE, kernel)
+
+plt.figure(figsize=(12, 4))
+
+plt.subplot(1, 3, 1)
+plt.imshow(img, cmap="gray")
+plt.title("Original")
+plt.axis("off")
+
+plt.subplot(1, 3, 2)
+plt.imshow(opening, cmap="gray")
+plt.title("Opening")
+plt.axis("off")
+
+plt.subplot(1, 3, 3)
+plt.imshow(closing, cmap="gray")
+plt.title("Closing")
+plt.axis("off")
+
+plt.tight_layout()
+plt.show()
+```
 
 ## Output
 
@@ -67,6 +103,10 @@ Compare the original, opened, and closed images.
 
 - The input image is displayed.
 - The image serves as the source for morphological processing.
+
+
+<img width="405" height="295" alt="image" src="https://github.com/user-attachments/assets/615e2606-a287-496f-98e9-50aaed8f62f8" />
+
 
 ### Opening Operation
 
@@ -76,6 +116,9 @@ Compare the original, opened, and closed images.
 - Thin protrusions and isolated pixels are eliminated.
 - Object boundaries become smoother.
 
+<img width="399" height="284" alt="image" src="https://github.com/user-attachments/assets/99da3bbf-7aea-4c54-8fa3-cd58d45549f2" />
+
+
 ### Closing Operation
 
 - Original image is displayed.
@@ -84,6 +127,10 @@ Compare the original, opened, and closed images.
 - Broken regions are connected.
 - Object boundaries become more continuous.
 
+
+<img width="423" height="299" alt="image" src="https://github.com/user-attachments/assets/970f098f-6de1-4cca-88df-208d23e6b192" />
+
+
 ## Applications
 
 ### Opening
@@ -91,6 +138,8 @@ Compare the original, opened, and closed images.
 - Noise removal in binary images.
 - Separation of connected objects.
 - Preprocessing for object detection.
+
+
 
 ### Closing
 
